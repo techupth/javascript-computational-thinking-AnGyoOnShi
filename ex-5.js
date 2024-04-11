@@ -82,3 +82,15 @@ let orders = [
 ];
 
 // Start coding here
+let expensiveOrder = 0;
+let expensiveId;
+for (let key of orders) {
+  if (expensiveOrder === 0) {
+    expensiveOrder = key.productPrice * key.productQuantity;
+  } else if (expensiveOrder < (key.productPrice * key.productQuantity)) {
+    expensiveOrder = key.productPrice * key.productQuantity;
+    expensiveId = key.id;
+  }
+}
+
+console.log(`The most expensive order is order id ${expensiveId} (${expensiveOrder.toLocaleString()} Baht)`);
