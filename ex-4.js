@@ -82,3 +82,15 @@ let orders = [
 ];
 
 // Start coding here
+let expensivePerPrice = 0;
+let expensiveProductName = "";
+for (let key of orders) {
+  if (expensivePerPrice === 0) {
+    expensivePerPrice = key.productPrice / key.productQuantity;
+  } else if (expensivePerPrice < key.productPrice / key.productQuantity) {
+    expensivePerPrice = key.productPrice / key.productQuantity;
+    expensiveProductName = key.productName;
+  }
+}
+
+console.log("The most expensive product in orders: " + expensiveProductName);
